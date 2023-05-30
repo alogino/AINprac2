@@ -71,17 +71,17 @@ threshold_health(25).
   +avrakedabra.
 
 +enemies_in_fov(ID,Type,Angle,Distance,Health,Position) : 
-  not friends_in_fov(ID_F,Type_F,Angle,Distance_F,Health_F,Position_F) 
-  <-
-  .shoot(3,Position).
-
-+enemies_in_fov(ID,Type,Angle,Distance,Health,Position) : 
   avrakedabra & not friends_in_fov(ID_F,Type_F,Angle,Distance_F,Health_F,Position_F)
   <-
   ?ammo(A);
   .print("avrakedabra");
   .shoot(A,Position).
 
+
++enemies_in_fov(ID,Type,Angle,Distance,Health,Position) : 
+  not friends_in_fov(ID_F,Type_F,Angle,Distance_F,Health_F,Position_F) 
+  <-
+  .shoot(3,Position).
 
 /**
 +ir_a(Pos)[source(A)]

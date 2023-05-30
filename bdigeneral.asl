@@ -76,15 +76,15 @@ threshold_health(25).
   <-
   +avrakedabra.
 
-// si veo un amigo no disparo
-+enemies_in_fov(_,_,Angle,_,_,Position): not friends_in_fov(ID,Type,Angle,Distance,Health,Position_F) 
-  <-
-  .shoot(3,Position).
-
 +enemies_in_fov(_,_,Angle,_,_,Position) : avrakedabra & not friends_in_fov(ID,Type,Angle,Distance,Health,Position_F)
   <-
   ?ammo(A);
   .shoot(A,Position).
+
+// si veo un amigo no disparo
++enemies_in_fov(_,_,Angle,_,_,Position): not friends_in_fov(ID,Type,Angle,Distance,Health,Position_F) 
+  <-
+  .shoot(3,Position).
 
 // llega una solicitud de ayuda médica
 +cureMe(Pos)[source(A)]: not askforcure & not selectMedic
